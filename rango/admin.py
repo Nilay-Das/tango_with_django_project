@@ -5,11 +5,12 @@ from rango.models import Category, Page
 
 # Customising the Admin Interface
 class PageAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'url')
+    list_display = ('title', 'category', 'url', 'views')
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name', 'views', 'likes')
+    list_display = ('name', 'views', 'likes', 'slug')
+    prepopulated_fields = {'slug': ('name',)}
 
 
 admin.site.register(Category, CategoryAdmin)
