@@ -1,3 +1,16 @@
 from django.contrib import admin
 
-# Register your models here.
+from rango.models import Category, Page
+
+
+# Customising the Admin Interface
+class PageAdmin(admin.ModelAdmin):
+    list_display = ('title', 'category', 'url')
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'views', 'likes')
+
+
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Page, PageAdmin)
