@@ -34,14 +34,12 @@ def index(request):
 
 
 def about(request):
-    # Construct a dictionary to pass to the template engine as its context.
-    # Note the key boldmessage matches to {{ boldmessage }} in the template!
-    context_dict = {'boldmessage': 'This tutorial has been put together by Nilay Das'}
+    # prints out whether the method is a GET or a POST
+    print(request.method)
 
-    # Return a rendered response to send to the client.
-    # We make use of the shortcut function to make our lives easier.
-    # Note that the first parameter is the template we wish to use.
-    return render(request, 'rango/about.html', context=context_dict)
+    # prints out the user name, if no one is logged in it prints 'AnonymousUser'
+    print(request.user)
+    return render(request, 'rango/about.html', {})
 
 
 # Function for viewing Category (category.html)
